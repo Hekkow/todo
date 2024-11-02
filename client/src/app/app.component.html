@@ -1,0 +1,12 @@
+<div class="app">
+  <div class="main">
+    <item *ngFor="let item of Array.from(user.items.values())" [item]="item"
+          (itemRemoved)="onItemRemoved($event)"
+          (itemEdited)="onItemEdited($event)"
+    />
+    <div class="bottomField">
+      <text-input (itemAdded)="onItemAdded($event)"/>
+    </div>
+  </div>
+</div>
+<router-outlet />

@@ -1,0 +1,11 @@
+<div class="item">
+
+  <p *ngIf="!editing" class="itemText" #text>
+    {{item.itemID + ": " + item.itemText }}
+  </p>
+
+  <input #editInput type="text" *ngIf="editing" (keyup.enter)="editEnterClicked($event)"/>
+
+  <button type="button" class="btn" (click)="remove($event)">x</button>
+  <button type="button" class="btn" (click)="edit($event)">/</button>
+</div>

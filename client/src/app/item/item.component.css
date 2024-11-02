@@ -1,0 +1,7 @@
+.item {
+  /*opacity: 0;*/
+  /*transform: translateX(-100%);*/
+}
+.itemText {
+  display: inline-block;
+}
