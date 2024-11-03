@@ -2,13 +2,22 @@ package com.theomidghafori.todo;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class RouteController {
     @PostMapping("/user/add/{username}")
-    public User registerUser(@PathVariable String username) {
+    public User registerUser(@PathVariable String username, @RequestBody Item[] items) {
+        System.out.println("HERE??");
         if (username.isEmpty()) return null;
+        int userID = TodoApplication.Data.getUserID(username);
+        if (userID != -1) {
+            return TodoApplication.Data.getUser(userID);
+        }
         User newUser = new User(username);
+        newUser.setItems(items);
         TodoApplication.Data.addUser(newUser);
         return newUser;
     }
@@ -17,6 +26,7 @@ public class RouteController {
         if (userID == -1 || itemText.isEmpty()) return null;
         Item newItem = new Item(itemText);
         TodoApplication.Data.addItem(userID, newItem);
+        System.out.println(TodoApplication.Data.getUser(userID));
         return newItem;
     }
     @DeleteMapping("user/{userID}/items/remove/{itemID}")

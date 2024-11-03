@@ -4,14 +4,13 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, View
   selector: 'text-input',
   standalone: true,
   imports: [],
-  templateUrl: './text-input.component.html',
-  styleUrl: './text-input.component.css'
+  template: `<input #textInput type="text" class="textInput active" (keyup.enter)="enterClicked($event)">`,
+  styles: ''
 })
 export class TextInputComponent implements AfterViewInit {
   @ViewChild('textInput') textInput !: ElementRef;
   ngAfterViewInit(): void {
-    console.log("HERE")
-    this.textInput.nativeElement.focus()
+    this.textInput.nativeElement.focus();
   }
   @Output() itemAdded = new EventEmitter<string>();
   enterClicked(event: Event): void {

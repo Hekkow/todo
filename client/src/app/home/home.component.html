@@ -1,6 +1,7 @@
+<app-header><app-home-header [user]="user"/></app-header>
 <div class="app">
   <div class="main">
-    <item *ngFor="let item of Array.from(user.items.values())" [item]="item"
+    <item *ngFor="let item of user.items" [item]="item"
           (itemRemoved)="onItemRemoved($event)"
           (itemEdited)="onItemEdited($event)"
     />
@@ -9,4 +10,3 @@
     </div>
   </div>
 </div>
-<router-outlet />

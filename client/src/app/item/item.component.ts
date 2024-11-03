@@ -1,6 +1,6 @@
 import {Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {NgIf} from '@angular/common';
-import {Item} from './item';
+import {Item} from '../classes/item';
 
 @Component({
   selector: 'item',

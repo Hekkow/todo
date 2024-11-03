@@ -44,6 +44,14 @@ public class TodoApplication {
 		public static User getUser(int userID) {
 			return users.get(userID);
 		}
+		public static Integer getUserID(String username) {
+			for (Integer key : users.keySet()) {
+				if (users.get(key).getUsername().equals(username)) {
+					return key;
+				}
+			}
+			return -1;
+		}
 	}
 
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Item implements Serializable {
     private int itemID = -1;
     private String itemText;
-
+    public Item() {}
     public Item(String itemName) {
         this.itemID = TodoApplication.Data.getLatestItemID();
         this.itemText = itemName;
@@ -14,7 +14,9 @@ public class Item implements Serializable {
     public int getItemID() {
         return itemID;
     }
-
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
+    }
     public String getItemText() {
         return itemText;
     }
