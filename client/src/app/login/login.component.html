@@ -1,3 +1,15 @@
 <app-header><app-login-header/></app-header>
-<input #usernameInput type="text" placeholder="username">
-<button (click)="login()">Login</button>
+<div class="app">
+  <div class="main border rounded shadow p-3 d-flex align-items-center" style="height: auto">
+    <div class="input-group">
+      <input autofocus #usernameInput type="text" placeholder="username" class="form-control" (keyup.enter)="login()">
+      <div class="input-group-append">
+        <button (click)="login()" class="btn btn-outline-secondary">Login</button>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

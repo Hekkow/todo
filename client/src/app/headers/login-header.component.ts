@@ -10,7 +10,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
         RouterLink,
         RouterLinkActive
     ],
-  template: '<button><a routerLink="/home" routerLinkActive="active">USE WITHOUT LOGIN</a></button>',
+  template: '<button class="btn btn-outline-light shadow" routerLink="/home" routerLinkActive="active">USE WITHOUT LOGIN</button>',
   styles: ''
 })
 export class LoginHeaderComponent {

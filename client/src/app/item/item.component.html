@@ -1,11 +1,15 @@
-<div class="item">
+<div class="item border rounded shadow p-2 m-1 mb-2 d-flex align-items-center justify-content-between">
 
   <p *ngIf="!editing" class="itemText" #text>
-    <ng-container *ngIf="item.local">*</ng-container>{{item.itemID + ": " + item.itemText }}
+    <ng-container *ngIf="item.local">*</ng-container>{{item.itemText }}
   </p>
 
   <input #editInput type="text" *ngIf="editing" (keyup.enter)="editEnterClicked($event)"/>
+  <div class="d-flex flex-row hoverButtons">
+    <button type="button" class="btn shadow btn-outline-primary d-flex align-items-center justify-content-center m-1"
+            (click)="remove($event)" style="width: 30px; height: 30px;"><i class="bi bi-x-lg"></i></button>
+    <button type="button" class="btn shadow btn-outline-primary d-flex align-items-center justify-content-center m-1"
+            (click)="edit($event)" style="width: 30px; height: 30px;"><i class="bi bi-pencil"></i></button>
+  </div>
 
-  <button type="button" class="btn" (click)="remove($event)">x</button>
-  <button type="button" class="btn" (click)="edit($event)">/</button>
 </div>

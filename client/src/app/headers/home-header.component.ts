@@ -12,9 +12,13 @@ import {EventsService} from '../services/events.service';
         RouterLink,
         RouterLinkActive
     ],
-  template: `{{user.username}}
-  <button *ngIf="user.userID === -1"><a routerLink="/login" routerLinkActive="active">LOGIN</a></button>
-  <button *ngIf="user.userID !== -1" (click)="eventsService.emitLogoutButtonClicked()">LOGOUT</button>`,
+  template: `
+    <div class="d-flex flex-row align-items-center">
+      <p class="text-light" style="margin: 0; padding-right: 10px">{{user.username}}</p>
+      <button type="button" class="btn btn-outline-light shadow" *ngIf="user && user.userID === -1" routerLink="/login" routerLinkActive="active">LOGIN</button>
+      <button type="button" class="btn btn-outline-light shadow" *ngIf="user && user.userID !== -1" (click)="eventsService.emitLogoutButtonClicked()">LOGOUT</button>
+    </div>
+    `,
   styles: ''
 })
 export class HomeHeaderComponent {

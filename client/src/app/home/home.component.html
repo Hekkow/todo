@@ -1,11 +1,13 @@
 <app-header><app-home-header [user]="user"/></app-header>
 <div class="app">
-  <div class="main">
-    <item *ngFor="let item of filteredItems()" [item]="item"
-          (itemRemoved)="onItemRemoved($event)"
-          (itemEdited)="onItemEdited($event)"
-    />
-    <div class="bottomField">
+  <div class="main border rounded shadow p-3 d-flex flex-column">
+    <div style="overflow-x: hidden; overflow-y: auto; scrollbar-width: thin">
+      <item *ngFor="let item of filteredItems()" [item]="item"
+            (itemRemoved)="onItemRemoved($event)"
+            (itemEdited)="onItemEdited($event)"
+      />
+    </div>
+    <div class="border rounded shadow p-3 mt-auto d-flex justify-content-center align-items-center">
       <text-input (itemAdded)="onItemAdded($event)"/>
     </div>
   </div>

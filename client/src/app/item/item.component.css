@@ -1,7 +1,15 @@
-.item {
-  /*opacity: 0;*/
-  /*transform: translateX(-100%);*/
-}
+.item {}
 .itemText {
   display: inline-block;
+  text-wrap: wrap;
+  word-break: break-word;
+  padding: 0;
+  margin: 0;
+}
+.hoverButtons {
+  visibility: hidden;
+}
+.item:hover .hoverButtons {
+  visibility: visible;
+
 }

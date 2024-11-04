@@ -4,8 +4,11 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, View
   selector: 'text-input',
   standalone: true,
   imports: [],
-  template: `<input #textInput type="text" class="textInput active" (keyup.enter)="enterClicked($event)">`,
-  styles: ''
+  template: `<input #textInput type="text" class="textInput active form-control" (keyup.enter)="enterClicked($event)">`,
+  styles: [`
+  :host {
+    width: 100%;
+  }`]
 })
 export class TextInputComponent implements AfterViewInit {
   @ViewChild('textInput') textInput !: ElementRef;
