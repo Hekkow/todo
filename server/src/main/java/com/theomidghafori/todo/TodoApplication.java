@@ -12,11 +12,10 @@ import java.util.TreeMap;
 public class TodoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TodoApplication.class, args);
-		System.out.println("Server started");
 	}
 	public static class Data {
-		private static int latestUserID = -1;
-		private static int latestItemID = -1;
+		private static int latestUserID = 0;
+		private static int latestItemID = 0;
 		public static int getLatestUserID() {
 			latestUserID++;
 			return latestUserID;

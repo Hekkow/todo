@@ -5,7 +5,6 @@ import {BehaviorSubject, Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class EventsService {
-
   constructor() { }
   private logoutButtonClicked = new Subject<boolean>();
   emitLogoutButtonClicked() {

@@ -2,7 +2,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {HeaderComponent} from "../headers/header.component";
 import {HomeHeaderComponent} from "../headers/home-header.component";
 import {LoginHeaderComponent} from '../headers/login-header.component';
-import {RequestsService} from '../requests.service';
+import {RequestsService} from '../services/requests.service';
 import {User} from '../classes/user';
 import {Item} from '../classes/item';
 import {Router} from '@angular/router';

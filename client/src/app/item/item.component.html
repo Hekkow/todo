@@ -1,7 +1,7 @@
 <div class="item">
 
   <p *ngIf="!editing" class="itemText" #text>
-    {{item.itemID + ": " + item.itemText }}
+    <ng-container *ngIf="item.local">*</ng-container>{{item.itemID + ": " + item.itemText }}
   </p>
 
   <input #editInput type="text" *ngIf="editing" (keyup.enter)="editEnterClicked($event)"/>

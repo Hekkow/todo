@@ -3,22 +3,23 @@ package com.theomidghafori.todo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class RouteController {
     @PostMapping("/user/add/{username}")
     public User registerUser(@PathVariable String username, @RequestBody Item[] items) {
-        System.out.println("HERE??");
         if (username.isEmpty()) return null;
         int userID = TodoApplication.Data.getUserID(username);
         if (userID != -1) {
-            return TodoApplication.Data.getUser(userID);
+            User user = TodoApplication.Data.getUser(userID);
+            user.addItems(items);
+            return user;
         }
         User newUser = new User(username);
-        newUser.setItems(items);
+        newUser.addItems(items);
         TodoApplication.Data.addUser(newUser);
+        System.out.println(newUser);
         return newUser;
     }
     @PostMapping("/user/{userID}/items/add")
@@ -32,18 +33,26 @@ public class RouteController {
     @DeleteMapping("user/{userID}/items/remove/{itemID}")
     public Object removeItem(@PathVariable int userID, @PathVariable int itemID) {
         TodoApplication.Data.removeItem(userID, itemID);
+        System.out.println(TodoApplication.Data.getUser(userID));
         return null;
     }
     @PutMapping("user/{userID}/items/update/{itemID}")
     public Item updateItem(@PathVariable int userID, @PathVariable int itemID, @RequestBody String itemText) {
+        System.out.println(TodoApplication.Data.getUser(userID));
         return TodoApplication.Data.updateItem(userID, itemID, itemText);
     }
     @GetMapping("/user/{userID}")
     public User getUser(@PathVariable int userID) {
-        return TodoApplication.Data.getUser(userID);
+        User user = TodoApplication.Data.getUser(userID);
+        System.out.println(user);
+        return user;
     }
     @GetMapping("/latestItemID")
     public int getLatestItemID() {
         return TodoApplication.Data.getLatestItemIDStationary();
+    }
+    @GetMapping("/ping")
+    public boolean ping() {
+        return true;
     }
 }

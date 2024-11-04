@@ -19,7 +19,7 @@ export class ItemComponent {
   @Output() itemEdited = new EventEmitter<Item>();
   editing = false;
   remove(event: MouseEvent): void {
-    this.text.nativeElement.style.opacity = 0.5;
+    // this.text.nativeElement.style.opacity = 0.5;
     this.itemRemoved.emit(this.item.itemID);
   }
   edit(event: MouseEvent): void {
@@ -30,7 +30,7 @@ export class ItemComponent {
     }, 0);
   }
   editEnterClicked(event: Event): void {
-    this.itemEdited.emit({itemID: this.item.itemID, itemText: this.editInput.nativeElement.value})
+    this.itemEdited.emit(new Item(this.item.itemID, this.editInput.nativeElement.value, this.item.local));
     this.editing = false;
   }
 }
